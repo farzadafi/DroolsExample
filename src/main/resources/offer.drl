@@ -1,0 +1,27 @@
+package KieRule;
+import com.farzad.droolsexample.model.Order;
+
+//-->
+rule "mobile"
+
+when
+priorityObject : Order(productName == "mobile" && price > 100000);
+then
+priorityObject.setOffPercent(10);
+end;
+//-->
+rule "car"
+
+when
+priorityObject : Order(productName == "car" && price > 100000000);
+then
+priorityObject.setOffPercent(20);
+end;
+//-->
+rule "clock"
+
+when
+priorityObject : Order(productName == "clock" && price > 20000 )
+then
+priorityObject.setOffPercent(30);
+end;
